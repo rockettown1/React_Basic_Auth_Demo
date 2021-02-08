@@ -7,8 +7,8 @@ import Home from "./components/Home";
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState({});
-
-  useAuth(setIsAuthenticated);
+  console.log("about to run auth with", user);
+  useAuth(setIsAuthenticated, user);
 
   return (
     <BrowserRouter>
