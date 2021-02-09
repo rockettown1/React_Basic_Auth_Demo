@@ -1,9 +1,9 @@
 import React from "react";
 
-const PrivateStuff = () => {
+const PrivateStuff = ({ user }) => {
   return (
     <div>
-      <h1>Private Stuff</h1>
+      <h1>Welcome, {user.name}</h1>
     </div>
   );
 };

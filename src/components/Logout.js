@@ -1,6 +1,8 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
-const Logout = ({ setUser }) => {
+const Logout = ({ setUser, setIsAuthenticated }) => {
+  const history = useHistory();
   const logout = async (event) => {
     event.preventDefault();
 
@@ -12,6 +14,8 @@ const Logout = ({ setUser }) => {
     console.log(data);
     setUser({});
     localStorage.removeItem("dataToken");
+    setIsAuthenticated(false);
+    history.push("/");
   };
   return (
     <div>

@@ -1,8 +1,10 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const history = useHistory();
 
   const formHandler = async (event) => {
     event.preventDefault();
@@ -19,6 +21,8 @@ const Login = ({ setUser }) => {
     console.log(data);
     setUser(data.user);
     localStorage.setItem("dataToken", data.token);
+    history.push("/private");
+    setIsAuthenticated(true);
   };
   return (
     <form onSubmit={formHandler}>
