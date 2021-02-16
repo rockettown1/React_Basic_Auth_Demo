@@ -2,7 +2,7 @@ import { useHistory } from "react-router-dom";
 
 export const useAuth = async (setIsAuthenticated) => {
   const history = useHistory();
-  const response = await fetch("http://localhost:5000/users/myprofile", {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/users/myprofile`, {
     method: "GET",
     headers: { Authorization: `Bearer ${localStorage.getItem("dataToken")}` },
   });

@@ -7,8 +7,8 @@ const Signup = ({ setUser }) => {
 
   const formHandler = async (event) => {
     event.preventDefault();
-
-    const response = await fetch("http://localhost:5000/users", {
+    console.log(process.env.REACT_APP_API_URL);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/users`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

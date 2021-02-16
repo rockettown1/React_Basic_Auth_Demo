@@ -6,7 +6,7 @@ const Logout = ({ setUser, setIsAuthenticated }) => {
   const logout = async (event) => {
     event.preventDefault();
 
-    const response = await fetch("http://localhost:5000/users/logout", {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/users/logout`, {
       method: "GET",
       headers: { Authorization: `Bearer ${localStorage.getItem("dataToken")}` },
     });
